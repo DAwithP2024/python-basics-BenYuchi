@@ -1,7 +1,7 @@
 import unittest
 from io import StringIO
 from unittest.mock import patch
-import shopping as gex  # 替换为实际的购物程序文件名
+import shopping as gex 
 
 class TestShoppingProgram(unittest.TestCase):
 
