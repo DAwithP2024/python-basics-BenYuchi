@@ -1,4 +1,4 @@
-
+# 产品分类字典
 products = {
     "IT Products": [
         ("Laptop", 1000),
@@ -30,6 +30,7 @@ products = {
     ]
 }
 
+# 显示分类
 def display_categories():
     print("Available Categories:")
     categories = list(products.keys())
@@ -46,11 +47,13 @@ def display_categories():
         print("Invalid input. Please enter a number.")
         return None
 
+# 显示产品
 def display_products(products_list):
     print("Available Products:")
     for i, (product, price) in enumerate(products_list, 1):
         print(f"{i}. {product} - ${price}")
 
+# 显示已排序的产品
 def display_sorted_products(products_list, sort_order):
     if sort_order == "asc":
         sorted_list = sorted(products_list, key=lambda x: x[1])
@@ -60,9 +63,11 @@ def display_sorted_products(products_list, sort_order):
         return products_list
     return sorted_list
 
+# 添加到购物车
 def add_to_cart(cart, product, quantity):
     cart.append((product[0], product[1], quantity))
 
+# 显示购物车
 def display_cart(cart):
     total_cost = 0
     print("\nYour Shopping Cart:")
@@ -73,6 +78,7 @@ def display_cart(cart):
     print(f"Total cost: ${total_cost}")
     return total_cost
 
+# 生成收据
 def generate_receipt(name, email, cart, total_cost, address):
     print("\n----- Receipt -----")
     print(f"Customer: {name}")
@@ -85,15 +91,18 @@ def generate_receipt(name, email, cart, total_cost, address):
     print("Your items will be delivered in 3 days.")
     print("Payment will be accepted upon delivery.")
 
+# 验证名称
 def validate_name(name):
     parts = name.split()
     if len(parts) == 2 and all(part.isalpha() for part in parts):
         return True
     return False
 
+# 验证邮箱
 def validate_email(email):
     return "@" in email
 
+# 主函数
 def main():
     cart = []
     name = input("Enter your name (First Last): ")
@@ -157,11 +166,11 @@ def main():
                         generate_receipt(name, email, cart, total_cost, address)
                     else:
                         print("Thank you for using our portal. Hope you buy something from us next time. Have a nice day.")
-                    return  
+                    return  # 结束程序
 
                 else:
                     print("Invalid option. Please select 1, 2, 3, or 4.")
 
-
+# 程序入口
 if __name__ == "__main__":
     main()
